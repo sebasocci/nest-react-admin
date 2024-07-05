@@ -1,7 +1,15 @@
 import { Exclude } from 'class-transformer';
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  OneToMany,
+} from 'typeorm';
 
 import { Role } from '../enums/role.enum';
+import { Favorite } from 'src/favorite/favorite.entity';
+import { Inscription } from 'src/inscription/inscription.entity';
 
 @Entity()
 export class User extends BaseEntity {
@@ -30,4 +38,10 @@ export class User extends BaseEntity {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @OneToMany(() => Favorite, (favorite) => favorite.course)
+  favorites: Favorite[];
+
+  @OneToMany(() => Inscription, (inscription) => inscription.user)
+  inscriptions: Inscription;
 }

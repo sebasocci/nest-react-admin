@@ -7,6 +7,10 @@ import { ContentModule } from './content/content.module';
 import { CourseModule } from './course/course.module';
 import { StatsModule } from './stats/stats.module';
 import { UserModule } from './user/user.module';
+import { FavoriteModule } from './favorite/favorite.module';
+import { ScheduleModule } from './schedule/schedule.module';
+import { InscriptionController } from './inscription/inscription.controller';
+import { InscriptionModule } from './inscription/inscription.module';
 
 @Module({
   imports: [
@@ -17,8 +21,11 @@ import { UserModule } from './user/user.module';
     CourseModule,
     ContentModule,
     StatsModule,
+    FavoriteModule,
+    ScheduleModule,
+    InscriptionModule,
   ],
-  controllers: [],
+  controllers: [InscriptionController],
   providers: [],
 })
 export class AppModule {}
