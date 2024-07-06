@@ -15,7 +15,7 @@ import {
 import { InscriptionService } from './inscription.service';
 import { Inscription } from './inscription.entity';
 
-@Controller('Inscription')
+@Controller('inscription')
 @ApiBearerAuth()
 @UseGuards(JwtGuard, RolesGuard)
 @ApiTags('Inscriptions')

@@ -33,11 +33,14 @@ export class Schedule {
   userLimit: number;
 
   @Column()
+  courseId: string;
+
+  @Column()
   dateCreated: Date;
 
   @ManyToOne(() => Course, (course) => course.schedules)
   course: Course;
 
-  @OneToMany(() => Inscription, (inscription) => inscription.schedule)
+  @OneToMany(() => Inscription, inscription => inscription.schedule)
   inscriptions: Inscription[];
 }

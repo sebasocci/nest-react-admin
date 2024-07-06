@@ -4,10 +4,10 @@ import { InscriptionService } from './inscription.service';
 import { InscriptionController } from './inscription.controller';
 import { Inscription } from './inscription.entity';
 import { Schedule } from '../schedule/schedule.entity';
-import { ScheduleModule } from '../schedule/schedule.module';
+import { User } from '../user/user.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Inscription, Schedule])],
+  imports: [TypeOrmModule.forFeature([Inscription, Schedule, User])],
   controllers: [InscriptionController],
   providers: [InscriptionService],
   exports: [InscriptionService],

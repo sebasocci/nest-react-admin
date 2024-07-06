@@ -9,6 +9,7 @@ import {
 import { Content } from '../content/content.entity';
 import { Favorite } from '../favorite/favorite.entity';
 import { Schedule } from '../schedule/schedule.entity';
+import { Ranking } from '../ranking/ranking.entity';
 
 @Entity()
 export class Course extends BaseEntity {
@@ -32,4 +33,7 @@ export class Course extends BaseEntity {
 
   @OneToMany(() => Schedule, (schedule) => schedule.course)
   schedules: Schedule[];
+
+  @OneToMany(() => Ranking, (ranking) => ranking.course)
+  ranking: Ranking[];
 }

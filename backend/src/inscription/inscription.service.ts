@@ -16,7 +16,7 @@ export class InscriptionService {
 
   async inscribe(userId: string, scheduleId: string): Promise<Inscription> {
     const schedule = await this.scheduleRepository.findOne(scheduleId, {
-      relations: ['Inscriptions'],
+      relations: ['inscriptions'],
     });
 
     if (!schedule) {

@@ -11,6 +11,8 @@ import { FavoriteModule } from './favorite/favorite.module';
 import { ScheduleModule } from './schedule/schedule.module';
 import { InscriptionController } from './inscription/inscription.controller';
 import { InscriptionModule } from './inscription/inscription.module';
+import { RankingModule } from './ranking/ranking.module';
+import { MailerModule } from './mailer/mailer.module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { InscriptionModule } from './inscription/inscription.module';
     FavoriteModule,
     ScheduleModule,
     InscriptionModule,
+    RankingModule,
+    MailerModule
   ],
   controllers: [InscriptionController],
   providers: [],

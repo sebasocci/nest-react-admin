@@ -9,12 +9,10 @@ import {
 } from 'class-validator';
 
 export class CreateScheduleDto {
-  @IsNotEmpty()
-  @IsDate()
+  @IsNotEmpty()  
   startDate: Date;
 
   @IsNotEmpty()
-  @IsDate()
   endDate: Date;
 
   @IsNotEmpty()

@@ -11,13 +11,24 @@ export class FavoriteService {
   ) {}
 
   async save(courseId: string, userId: string): Promise<Favorite> {
-    return await this.favoriteRepository
-      .create({
-        courseId,
-        userId,
-        dateCreated: new Date(),
-      })
-      .save();
+    const existingFavorite = await this.favoriteRepository.findOne({ where: { courseId, userId } });
+
+    if (existingFavorite) {
+      return existingFavorite;
+    }
+
+    const newFavorite = this.favoriteRepository.create({
+      courseId,
+      userId,
+      dateCreated: new Date(),
+    });
+
+    await this.favoriteRepository.save(newFavorite);    
+    return newFavorite;
+  }
+
+  async find(courseId: string, userId: string): Promise<Favorite> {
+    return Favorite.findOne({ where: { courseId, userId } });    
   }
 
   async findAllByUserId(userId: string): Promise<Favorite[]> {

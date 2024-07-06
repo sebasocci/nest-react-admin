@@ -6,9 +6,9 @@ import { User } from '../user/user.entity';
 @Entity()
 export class Inscription {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string;  
 
-  @ManyToOne(() => Schedule, (schedule) => schedule.inscriptions)
+  @ManyToOne(() => Schedule, schedule => schedule.inscriptions)
   schedule: Schedule;
 
   @ManyToOne(() => User, (user) => user.inscriptions)
